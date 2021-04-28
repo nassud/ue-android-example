@@ -7,7 +7,7 @@ android {
     buildToolsVersion "30.0.3"
 
     defaultConfig {
-        applicationId "co.edu.uniempresarial.isf6.appmovil.login"
+        applicationId "co.edu.ue.isf6.appmovil.login"
         minSdkVersion 21
         targetSdkVersion 30
         versionCode 1
@@ -16,7 +16,7 @@ android {
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         // Auth0 for login
-        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "demo"]
+        manifestPlaceholders = [auth0Domain: "@string/com_auth0_domain", auth0Scheme: "uelogin"]
     }
 
     buildTypes {
@@ -42,7 +42,7 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.3.1'
 
     // App dependencies
-    implementation 'com.auth0.android:auth0:2.+'
+    implementation 'com.auth0.android:auth0:2.2.0'
 
     testImplementation 'junit:junit:4.+'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
