@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">UELoginExample</string>
-    <string name="title_home">Home</string>
+    <string name="title_home">Inicio</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+
+    <string name="com_auth0_client_id">MaBYuCNDs8BiqZi0deTNuWa2r5BIj9za</string>
+    <string name="com_auth0_domain">sixel.auth0.com</string>
 </resources>

@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import co.edu.uniempresarial.isf6.appmovil.login.R;
+import co.edu.uniempresarial.isf6.appmovil.login.providers.Auth;
 
 public class HomeFragment extends Fragment {
 
@@ -30,6 +32,10 @@ public class HomeFragment extends Fragment {
                 textView.setText(s);
             }
         });
+
+        Button button = (Button) root.findViewById(R.id.buttonLogin);
+        button.setOnClickListener(v -> Auth.login(root.getContext()));
+
         return root;
     }
 }
