@@ -1,14 +1,14 @@
-package co.edu.uniempresarial.isf6.appmovil.login.ui.notifications;
+package co.edu.uniempresarial.isf6.appmovil.login.ui.list;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-public class NotificationsViewModel extends ViewModel {
+public class UsersViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
 
-    public NotificationsViewModel() {
+    public UsersViewModel() {
         mText = new MutableLiveData<>();
         mText.setValue("This is notifications fragment");
     }
