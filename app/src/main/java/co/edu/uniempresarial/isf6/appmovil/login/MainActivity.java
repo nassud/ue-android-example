@@ -1,5 +1,6 @@
 package co.edu.uniempresarial.isf6.appmovil.login;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
@@ -10,7 +11,11 @@ import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
+import org.greenrobot.greendao.database.Database;
+
 public class MainActivity extends AppCompatActivity {
+
+    //private DaoSession daoSession;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
