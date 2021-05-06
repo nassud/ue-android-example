@@ -11,6 +11,9 @@ import com.auth0.android.result.Credentials;
 
 import org.jetbrains.annotations.NotNull;
 
+import co.edu.uniempresarial.isf6.appmovil.login.MainActivity;
+import co.edu.uniempresarial.isf6.appmovil.login.dao.DaoSession;
+
 public class Auth {
 
     public static void login(Context context) {
