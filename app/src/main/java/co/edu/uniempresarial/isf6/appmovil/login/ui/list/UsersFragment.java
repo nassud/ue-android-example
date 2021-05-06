@@ -39,7 +39,11 @@ public class UsersFragment extends Fragment {
             User user = new User();
             user.setUsername("ejemploUser");
 
+            User user2 = new User();
+            user2.setUsername("ejemploUser2");
+
             userDao.save(user);
+            userDao.save(user2);
         }
 
         final RecyclerView rvUsers = root.findViewById(R.id.rvUsers);
