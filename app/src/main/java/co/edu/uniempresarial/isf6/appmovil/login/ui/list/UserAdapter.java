@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 import co.edu.uniempresarial.isf6.appmovil.login.R;
@@ -32,7 +33,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         final User user = userList.get(position);
-        holder.textView.setText(user.getUsername());
+        holder.userName.setText(user.getUsername());
+        holder.email.setText(user.getEmail());
+
+        holder.lastLogin.setText(user.getLastLogin().toString());
     }
 
     @Override
@@ -41,12 +45,16 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ViewHolder> {
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        public TextView textView;
+        public TextView userName;
+        public TextView email;
+        public TextView lastLogin;
         ConstraintLayout constraintLayout;
 
         public ViewHolder(View view) {
             super(view);
-            this.textView = (TextView) view.findViewById(R.id.userName);
+            this.userName = (TextView) view.findViewById(R.id.userName);
+            this.email = (TextView) view.findViewById(R.id.email);
+            this.lastLogin = (TextView) view.findViewById(R.id.loginDate);
             constraintLayout = (ConstraintLayout) view.findViewById(R.id.item_user_layout);
         }
     }
