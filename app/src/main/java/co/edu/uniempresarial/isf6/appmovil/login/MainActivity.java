@@ -2,16 +2,26 @@ package co.edu.uniempresarial.isf6.appmovil.login;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.biometric.BiometricPrompt;
+import androidx.core.content.ContextCompat;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 
 import org.greenrobot.greendao.database.Database;
+import org.jetbrains.annotations.NotNull;
+
+import java.util.concurrent.Executor;
 
 import co.edu.uniempresarial.isf6.appmovil.login.dao.DaoMaster;
 import co.edu.uniempresarial.isf6.appmovil.login.dao.DaoSession;
@@ -19,6 +29,8 @@ import co.edu.uniempresarial.isf6.appmovil.login.dao.DaoSession;
 public class MainActivity extends AppCompatActivity {
 
     private DaoSession daoSession;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,13 +40,15 @@ public class MainActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications)
+                R.id.navigation_home, R.id.navigation_notifications)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
         initializeDB();
+
+
     }
 
     private void initializeDB() {
