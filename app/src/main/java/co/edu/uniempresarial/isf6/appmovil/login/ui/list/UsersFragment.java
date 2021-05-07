@@ -29,22 +29,10 @@ public class UsersFragment extends Fragment {
                              ViewGroup container, Bundle savedInstanceState) {
         usersViewModel =
                 new ViewModelProvider(this).get(UsersViewModel.class);
-        View root = inflater.inflate(R.layout.fragment_notifications, container, false);
+        View root = inflater.inflate(R.layout.fragment_historico, container, false);
 
         DaoSession daoSession = ((MainActivity)getActivity()).getDaoSession();
         userDao = daoSession.getUserDao();
-
-        // TODO Usuario de ejemplo.. Remover al guardar desde el login
-        if(userDao.queryBuilder().count() == 0){
-            User user = new User();
-            user.setUsername("ejemploUser");
-
-            User user2 = new User();
-            user2.setUsername("ejemploUser2");
-
-            userDao.save(user);
-            userDao.save(user2);
-        }
 
         final RecyclerView rvUsers = root.findViewById(R.id.rvUsers);
         userList = userDao.queryBuilder().list();
