@@ -26,8 +26,12 @@ public class UserDao extends AbstractDao<User, Long> {
     public static class Properties {
         public final static Property Id = new Property(0, Long.class, "id", true, "_id");
         public final static Property Username = new Property(1, String.class, "username", false, "USERNAME");
-        public final static Property Token = new Property(2, String.class, "token", false, "TOKEN");
-        public final static Property LastLogin = new Property(3, java.util.Date.class, "lastLogin", false, "LAST_LOGIN");
+        public final static Property Email = new Property(2, String.class, "email", false, "EMAIL");
+        public final static Property Name = new Property(3, String.class, "name", false, "NAME");
+        public final static Property Picture = new Property(4, String.class, "picture", false, "PICTURE");
+        public final static Property Subject = new Property(5, String.class, "subject", false, "SUBJECT");
+        public final static Property Token = new Property(6, String.class, "token", false, "TOKEN");
+        public final static Property LastLogin = new Property(7, java.util.Date.class, "lastLogin", false, "LAST_LOGIN");
     }
 
 
@@ -45,8 +49,12 @@ public class UserDao extends AbstractDao<User, Long> {
         db.execSQL("CREATE TABLE " + constraint + "\"USER\" (" + //
                 "\"_id\" INTEGER PRIMARY KEY AUTOINCREMENT ," + // 0: id
                 "\"USERNAME\" TEXT NOT NULL ," + // 1: username
-                "\"TOKEN\" TEXT," + // 2: token
-                "\"LAST_LOGIN\" INTEGER);"); // 3: lastLogin
+                "\"EMAIL\" TEXT," + // 2: email
+                "\"NAME\" TEXT," + // 3: name
+                "\"PICTURE\" TEXT," + // 4: picture
+                "\"SUBJECT\" TEXT," + // 5: subject
+                "\"TOKEN\" TEXT," + // 6: token
+                "\"LAST_LOGIN\" INTEGER);"); // 7: lastLogin
     }
 
     /** Drops the underlying database table. */
@@ -65,14 +73,34 @@ public class UserDao extends AbstractDao<User, Long> {
         }
         stmt.bindString(2, entity.getUsername());
  
+        String email = entity.getEmail();
+        if (email != null) {
+            stmt.bindString(3, email);
+        }
+ 
+        String name = entity.getName();
+        if (name != null) {
+            stmt.bindString(4, name);
+        }
+ 
+        String picture = entity.getPicture();
+        if (picture != null) {
+            stmt.bindString(5, picture);
+        }
+ 
+        String subject = entity.getSubject();
+        if (subject != null) {
+            stmt.bindString(6, subject);
+        }
+ 
         String token = entity.getToken();
         if (token != null) {
-            stmt.bindString(3, token);
+            stmt.bindString(7, token);
         }
  
         java.util.Date lastLogin = entity.getLastLogin();
         if (lastLogin != null) {
-            stmt.bindLong(4, lastLogin.getTime());
+            stmt.bindLong(8, lastLogin.getTime());
         }
     }
 
@@ -86,14 +114,34 @@ public class UserDao extends AbstractDao<User, Long> {
         }
         stmt.bindString(2, entity.getUsername());
  
+        String email = entity.getEmail();
+        if (email != null) {
+            stmt.bindString(3, email);
+        }
+ 
+        String name = entity.getName();
+        if (name != null) {
+            stmt.bindString(4, name);
+        }
+ 
+        String picture = entity.getPicture();
+        if (picture != null) {
+            stmt.bindString(5, picture);
+        }
+ 
+        String subject = entity.getSubject();
+        if (subject != null) {
+            stmt.bindString(6, subject);
+        }
+ 
         String token = entity.getToken();
         if (token != null) {
-            stmt.bindString(3, token);
+            stmt.bindString(7, token);
         }
  
         java.util.Date lastLogin = entity.getLastLogin();
         if (lastLogin != null) {
-            stmt.bindLong(4, lastLogin.getTime());
+            stmt.bindLong(8, lastLogin.getTime());
         }
     }
 
@@ -107,8 +155,12 @@ public class UserDao extends AbstractDao<User, Long> {
         User entity = new User( //
             cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0), // id
             cursor.getString(offset + 1), // username
-            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // token
-            cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)) // lastLogin
+            cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2), // email
+            cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3), // name
+            cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4), // picture
+            cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5), // subject
+            cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6), // token
+            cursor.isNull(offset + 7) ? null : new java.util.Date(cursor.getLong(offset + 7)) // lastLogin
         );
         return entity;
     }
@@ -117,8 +169,12 @@ public class UserDao extends AbstractDao<User, Long> {
     public void readEntity(Cursor cursor, User entity, int offset) {
         entity.setId(cursor.isNull(offset + 0) ? null : cursor.getLong(offset + 0));
         entity.setUsername(cursor.getString(offset + 1));
-        entity.setToken(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
-        entity.setLastLogin(cursor.isNull(offset + 3) ? null : new java.util.Date(cursor.getLong(offset + 3)));
+        entity.setEmail(cursor.isNull(offset + 2) ? null : cursor.getString(offset + 2));
+        entity.setName(cursor.isNull(offset + 3) ? null : cursor.getString(offset + 3));
+        entity.setPicture(cursor.isNull(offset + 4) ? null : cursor.getString(offset + 4));
+        entity.setSubject(cursor.isNull(offset + 5) ? null : cursor.getString(offset + 5));
+        entity.setToken(cursor.isNull(offset + 6) ? null : cursor.getString(offset + 6));
+        entity.setLastLogin(cursor.isNull(offset + 7) ? null : new java.util.Date(cursor.getLong(offset + 7)));
      }
     
     @Override

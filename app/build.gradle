@@ -34,7 +34,7 @@ android {
 apply plugin: 'org.greenrobot.greendao'
 
 greendao {
-    schemaVersion 2
+    schemaVersion 3
     daoPackage 'co.edu.uniempresarial.isf6.appmovil.login.dao'
     targetGenDir 'src/main/java'
 }
@@ -51,6 +51,7 @@ dependencies {
 
     // App dependencies
     implementation 'com.auth0.android:auth0:2.2.0'
+    implementation 'com.auth0.android:jwtdecode:2.0.0'
     implementation 'org.greenrobot:greendao:3.3.0'
     implementation 'org.greenrobot:greendao-generator:3.3.0'
 

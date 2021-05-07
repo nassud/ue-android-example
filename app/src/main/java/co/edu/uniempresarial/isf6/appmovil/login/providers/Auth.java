@@ -16,24 +16,8 @@ import co.edu.uniempresarial.isf6.appmovil.login.dao.DaoSession;
 
 public class Auth {
 
-    public static void login(Context context) {
+    public static void login(Context context, Callback callback) {
         Auth0 auth0 = new Auth0(context);
-
-        Callback callback = new Callback<Credentials, AuthenticationException>() {
-            @Override
-            public void onSuccess(Credentials credentials) {
-                String idToken = credentials.getIdToken();
-                String accessToken = credentials.getAccessToken();
-                System.out.println("Id token: " + idToken);
-                System.out.println("Access token: " + accessToken);
-                Toast.makeText(context,"Autenticado con token: " + idToken,Toast.LENGTH_SHORT).show();
-            }
-
-            @Override
-            public void onFailure(@NotNull AuthenticationException e) {
-                Toast.makeText(context,"Ocurrió un error: " + e.getMessage(),Toast.LENGTH_SHORT).show();
-            }
-        };
 
         WebAuthProvider.login(auth0)
                 .withScheme("uelogin")
