@@ -67,6 +67,7 @@ public class HomeFragment extends Fragment {
 
                 userDao.save(user);
 
+                System.out.println("Token: " + user.getToken());
                 Toast.makeText(context,"Se ha autenticado: " + user.getName(), Toast.LENGTH_SHORT).show();
             }
 
